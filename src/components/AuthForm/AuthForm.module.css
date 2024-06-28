@@ -1,0 +1,19 @@
+/* src/components/AuthForm/AuthForm.module.css */
+.authForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+.authForm div {
+    margin-bottom: 1rem;
+}
+
+.authForm label {
+    margin-right: 0.5rem;
+}
+
+.authForm button {
+    padding: 0.5rem 1rem;
+}
