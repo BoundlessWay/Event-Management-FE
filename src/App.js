@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import PublicRoutes from './routes/PublicRoutes';
-import AdminRoutes from './routes/AdminRoutes';
-import GuestRoutes from './routes/GuestRoutes';
-import OrganizationRoutes from './routes/OrganizationRoutes';
-import { useAuth } from './hooks/useAuth';
+import PublicRoutes from 'routes/PublicRoutes';
+import AdminRoutes from 'routes/AdminRoutes';
+import GuestRoutes from 'routes/GuestRoutes';
+import OrganizationRoutes from 'routes/OrganizationRoutes';
+import { useAuth } from 'hooks/useAuth';
 
 
 function App() {

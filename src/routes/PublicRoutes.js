@@ -1,9 +1,9 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import HomePage from '../pages/HomePage/HomePage';
-import Login from '../pages/Login/Login';
-import Register from '../pages/Register/Register';
-import ForgotPassword from '../pages/ForgotPassword/ForgotPassword';
+import HomePage from 'pages/HomePage/HomePage';
+import Login from 'pages/Login/Login';
+import Register from 'pages/Register/Register';
+import ForgotPassword from 'pages/ForgotPassword/ForgotPassword';
 
 const PublicRoutes = () => {
     return (

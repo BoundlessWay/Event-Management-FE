@@ -1,9 +1,9 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import AdminDashboard from '../pages/AdminDashboard/AdminDashboard';
-import UserDetail from '../pages/UserDetail/UserDetail';
-import AccountSetting from '../pages/AccountSettings/AccountSetting';
-import ReportRevenue from '../pages/ReportRevenue/ReportRevenue';
+import AdminDashboard from 'pages/AdminDashboard/AdminDashboard';
+import UserDetail from 'pages/UserDetail/UserDetail';
+import AccountSetting from 'pages/AccountSettings/AccountSetting';
+import ReportRevenue from 'pages/ReportRevenue/ReportRevenue';
 
 const AdminRoutes = () => {
     return (
