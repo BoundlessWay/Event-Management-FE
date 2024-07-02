@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import PublicRoutes from 'routes/PublicRoutes';
 import AdminRoutes from 'routes/AdminRoutes';
 import GuestRoutes from 'routes/GuestRoutes';
@@ -13,10 +13,25 @@ function App() {
 
   return (
     <Router>
-      <PublicRoutes />
-      {isLoggedIn && role === 'admin' && <AdminRoutes />}
-      {isLoggedIn && role === 'guest' && <GuestRoutes />}
-      {isLoggedIn && role === 'organization' && <OrganizationRoutes />}
+      <Routes>
+
+        {PublicRoutes.map((route, index) => (
+          <Route key={index} path={route.path} element={route.element} />
+        ))}
+
+        {isLoggedIn && role === 'admin' && AdminRoutes.map((route, index) => (
+          <Route key={index} path={route.path} element={route.element} />
+        ))}
+
+        {isLoggedIn && role === 'guest' && GuestRoutes.map((route, index) => (
+          <Route key={index} path={route.path} element={route.element} />
+        ))}
+
+        {isLoggedIn && role === 'organization' && OrganizationRoutes.map((route, index) => (
+          <Route key={index} path={route.path} element={route.element} />
+        ))}
+
+      </Routes>
     </Router>
   );
 }

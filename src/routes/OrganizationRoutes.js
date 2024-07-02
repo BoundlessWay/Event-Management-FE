@@ -1,14 +1,7 @@
-// import React from 'react';
-// import { Routes, Route } from 'react-router-dom';
-// import OrganizationDashboard from '../pages/OrganizationDashboard';
+import OrganizationHomePage from "pages/OrganizationHomePage/OrganizationHomePage";
 
-// const OrganizationRoutes = () => {
-//     return (
-//         <Routes>
-//             <Route path="/dashboard" element={<OrganizationDashboard />} />
-//             {/* Các route khác của organization */}
-//         </Routes>
-//     );
-// };
+const OrganizationRoutes = [
+    { path: "/organization", element: <OrganizationHomePage /> },
+];
 
-// export default OrganizationRoutes;
+export default OrganizationRoutes;

@@ -46,8 +46,15 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
+    const changeAuthState = (loggedIn, userRole) => {
+        setIsLoggedIn(loggedIn);
+        setRole(userRole);
+    };
+
     return (
-        <AuthContext.Provider value={{ isLoggedIn, role, login, logout, handleRegisterGuest, handleRegisterOrganization, error }}>
+        <AuthContext.Provider value={
+            { isLoggedIn, role, login, logout, handleRegisterGuest, handleRegisterOrganization, error, changeAuthState }
+        }>
             {children}
         </AuthContext.Provider>
     );

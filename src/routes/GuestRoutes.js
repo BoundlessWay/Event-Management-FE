@@ -1,14 +1,7 @@
-// import React from 'react';
-// import { Routes, Route } from 'react-router-dom';
-// import GuestDashboard from '../pages/GuestDashboard';
+import GuestHomePage from "pages/GuestHomePage/GuestHomePage";
 
-// const GuestRoutes = () => {
-//     return (
-//         <Routes>
-//             <Route path="/dashboard" element={<GuestDashboard />} />
-//             {/* Các route khác của guest */}
-//         </Routes>
-//     );
-// };
+const GuestRoutes = [
+    { path: "/guest", element: <GuestHomePage /> },
+];
 
-// export default GuestRoutes;
+export default GuestRoutes;
