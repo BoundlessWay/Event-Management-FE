@@ -14,11 +14,6 @@ function App() {
   return (
     <Router>
       <Routes>
-
-        {PublicRoutes.map((route, index) => (
-          <Route key={index} path={route.path} element={route.element} />
-        ))}
-
         {isLoggedIn && role === 'admin' && AdminRoutes.map((route, index) => (
           <Route key={index} path={route.path} element={route.element} />
         ))}
@@ -28,6 +23,10 @@ function App() {
         ))}
 
         {isLoggedIn && role === 'organization' && OrganizationRoutes.map((route, index) => (
+          <Route key={index} path={route.path} element={route.element} />
+        ))}
+
+        {PublicRoutes.map((route, index) => (
           <Route key={index} path={route.path} element={route.element} />
         ))}
 

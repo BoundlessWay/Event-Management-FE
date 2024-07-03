@@ -1,11 +1,18 @@
 import React from 'react';
+import NavBar from "components/NavBar/NavBar"
+
 
 const GuestHomePage = () => {
     return (
-        <div>
-            <h2>Guest Dashboard</h2>
-            {/* Các thành phần khác để hiển thị thông tin tài khoản người dùng */}
-        </div>
+        <React.Fragment>
+            <div>
+                <NavBar />
+            </div>
+
+            <h1>Welcome to the Guest Home Page</h1>
+
+
+        </React.Fragment>
     );
 };
 

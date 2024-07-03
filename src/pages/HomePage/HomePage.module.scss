@@ -1,61 +1,26 @@
-/* 
+$topNavBarHeight: 64px;
 
-.homepage-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f8f9fa;
-    font-family: Arial, sans-serif;
+.topFixed {
+    position: fixed;
+    width: 100%;
+    top: 0;
 }
 
-.homepage-header {
-    margin-bottom: 20px;
+.wallpaper {
+    margin-top: $topNavBarHeight;
+    height: 400px;
+
+    background-image: url('/assets/image/wallpaper.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-.homepage-header h1 {
-    color: #343a40;
-    font-size: 2.5rem;
-    text-align: center;
+.mainContent {
+    width: 100%;
 }
 
-.homepage-main {
-    text-align: center;
+.bottomFooter {
+    width: 100%;
 }
 
-.homepage-main p {
-    color: #6c757d;
-    font-size: 1.25rem;
-    margin-bottom: 20px;
-}
-
-.homepage-links {
-    display: flex;
-    gap: 20px;
-}
-
-.homepage-link {
-    display: inline-block;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    color: #fff;
-    background-color: #007bff;
-    transition: background-color 0.3s ease;
-}
-
-.homepage-link:hover {
-    background-color: #0056b3;
-}
-
-.homepage-footer {
-    position: absolute;
-    bottom: 20px;
-    text-align: center;
-}
-
-.homepage-footer p {
-    color: #6c757d;
-    font-size: 0.875rem;
-} */

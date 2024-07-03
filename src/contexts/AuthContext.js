@@ -1,6 +1,6 @@
 // AuthContext.js
 import React, { createContext, useState } from 'react';
-import { login as authLogin, registerGuest, registerOrganization } from 'services/AuthService';
+import { login, registerGuest, registerOrganization } from 'services/AuthService';
 
 export const AuthContext = createContext();
 
@@ -9,9 +9,9 @@ export const AuthProvider = ({ children }) => {
     const [role, setRole] = useState(null);
     const [error, setError] = useState(null);
 
-    const login = async (username, password) => {
+    const handleLogin = async (username, password) => {
         try {
-            const data = await authLogin(username, password);
+            const data = await login(username, password);
             setRole(data.role);
             setIsLoggedIn(true);
             setError(null);
@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
-    const logout = () => {
+    const handleLogout = () => {
         setIsLoggedIn(false);
         setRole(null);
     };
@@ -46,14 +46,9 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
-    const changeAuthState = (loggedIn, userRole) => {
-        setIsLoggedIn(loggedIn);
-        setRole(userRole);
-    };
-
     return (
         <AuthContext.Provider value={
-            { isLoggedIn, role, login, logout, handleRegisterGuest, handleRegisterOrganization, error, changeAuthState }
+            { isLoggedIn, role, error, handleLogin, handleLogout, handleRegisterGuest, handleRegisterOrganization }
         }>
             {children}
         </AuthContext.Provider>

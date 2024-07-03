@@ -1,7 +1,7 @@
 import GuestHomePage from "pages/GuestHomePage/GuestHomePage";
 
 const GuestRoutes = [
-    { path: "/guest", element: <GuestHomePage /> },
+    { path: "/", element: <GuestHomePage /> },
 ];
 
 export default GuestRoutes;

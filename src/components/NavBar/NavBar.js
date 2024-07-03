@@ -1,38 +1,48 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa'; // Import search icon
-import styles from './NavBar.module.scss'; // Import CSS for NavBar styling
-
-console.log(styles); // Log the styles object to the console
+import styles from './NavBar.module.scss'; // Import CSS module for NavBar styling
+import { useAuth } from '../../hooks/useAuth';
 
 const NavBar = () => {
+    const { role, handleLogout } = useAuth();
+
+
     return (
-        <nav className="navbar">
-            <div className="logo-container">
-                <Link to="/" className="logo">Eventicket</Link>
+        <nav className={styles.navBar}>
+            <div className={styles.logoContainer}>
+                <Link to="/" className={styles.logo}>Eventicket</Link>
             </div>
 
-            <div className="search-bar">
+            <div className={styles.searchBar}>
                 <input type="text" placeholder="Search events" />
-                <button className="search-btn"><FaSearch /></button>
+                <button><FaSearch /></button>
             </div>
 
-            <ul className="nav-links">
+            <ul className={styles.navLinks}>
                 <li>
-                    <Link to="/search" className="nav-link">Find Events</Link>
+                    <Link to="/search">Find Events</Link>
                 </li>
                 <li>
-                    <Link to="/create-event" className="nav-link">Create Event</Link>
+                    <Link to="/create-event">Create Event</Link>
                 </li>
                 <li>
-                    <Link to="/help-center" className="nav-link">Help Center</Link>
+                    <Link to="/help-center">Help Center</Link>
                 </li>
-                <li>
-                    <Link to="/login" className="nav-link">Log In</Link>
-                </li>
-                <li>
-                    <Link to="/signup" className="nav-link">Sign Up</Link>
-                </li>
+                {role === null ? (
+                    <React.Fragment>
+                        <li>
+                            <Link to="/login">Log In</Link>
+                        </li>
+                        <li>
+                            <Link to="/signup">Sign Up</Link>
+                        </li>
+                    </React.Fragment>
+                ) : (
+                    <li>
+                        <button onClick={handleLogout}>Log Out</button>
+                    </li>
+                )}
             </ul>
         </nav>
     );

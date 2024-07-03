@@ -8,20 +8,21 @@ const BASE_URL = 'https://gateway-service-7kqp.onrender.com/auth';
  * @returns {Object} - Response data from the server.
  */
 export const login = async (username, password) => {
-    const response = await fetch(`${BASE_URL}/login`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
-    });
+    // const response = await fetch(`${BASE_URL}/login`, {
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify({ username, password }),
+    // });
 
-    if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error);
-    }
+    // if (!response.ok) {
+    //     const errorData = await response.json();
+    //     throw new Error(errorData.error);
+    // }
 
-    return await response.json();
+    // return await response.json();
+    return { role: 'guest' };
 };
 
 /**

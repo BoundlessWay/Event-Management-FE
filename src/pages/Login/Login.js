@@ -8,12 +8,15 @@ const Login = () => {
     const { handleLogin, error } = useAuth();
     const navigate = useNavigate();
 
+
     const onSubmit = async (e) => {
         e.preventDefault();
         await handleLogin(username, password);
         if (!error) {
-            navigate('/dashboard');
+            alert('Login successful');
+            navigate('/');
         }
+        else alert(error)
     };
 
     return (
