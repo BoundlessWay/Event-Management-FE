@@ -1,12 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa'; // Import search icon
 import styles from './NavBar.module.scss'; // Import CSS module for NavBar styling
-import { useAuth } from '../../hooks/useAuth';
+import { useAuth } from 'hooks/useAuth';
+import avatar from 'assets/image/avatar.png'; // Import hình ảnh
 
 const NavBar = () => {
-    const { role, handleLogout } = useAuth();
+    const { username, role, handleLogout } = useAuth();
+    const navigate = useNavigate();
 
+    const handleLogoutClick = (e) => {
+        e.preventDefault();
+        handleLogout();
+        navigate('/');
+    };
 
     return (
         <nav className={styles.navBar}>
@@ -39,9 +46,25 @@ const NavBar = () => {
                         </li>
                     </React.Fragment>
                 ) : (
-                    <li>
-                        <button onClick={handleLogout}>Log Out</button>
-                    </li>
+                    <div className={styles.profile}>
+                        <div className={styles.avatar}>
+                            <p>{username}</p>
+                            <img src={avatar} alt="Profile" />
+                        </div>
+
+                        <nav className={styles.profileNav}>
+                            <li>
+                                <Link to="/profile">Profile</Link>
+                            </li>
+                            <li>
+                                <Link to="/change-password">Change Password</Link>
+                            </li>
+                            <li>
+                                <Link to="/" onClick={handleLogoutClick}>Logout</Link>
+                            </li>
+                        </nav>
+                    </div>
+
                 )}
             </ul>
         </nav>

@@ -16,8 +16,14 @@ $topNavBarHeight: 64px;
     background-repeat: no-repeat;
 }
 
-.mainContent {
+.eventList {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
     width: 100%;
+    background-color: #f8f7fa;
+    padding: 128px 32px;
+
 }
 
 .bottomFooter {

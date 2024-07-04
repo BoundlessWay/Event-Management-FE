@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from './Login.module.scss';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 
@@ -19,9 +20,21 @@ const Login = () => {
         else alert(error)
     };
 
+    function ShowPass() {
+
+        const checkbox = document.querySelector(`.${styles.loginForm} form input[type="checkbox"]`);
+        const passwordInput = document.querySelector(`.${styles.loginForm} form input:nth-child(2)`);
+
+        if (checkbox.checked) {
+            passwordInput.type = 'text';
+        } else {
+            passwordInput.type = 'password';
+        }
+    }
+
     return (
-        <div>
-            <h2>Login</h2>
+        <div className={styles.loginForm}>
+            <h2 className={styles.heading}>Login</h2>
             <form onSubmit={onSubmit}>
                 <input
                     type="text"
@@ -35,6 +48,12 @@ const Login = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Password"
                 />
+                <input
+                    id="showPass"
+                    type="checkbox"
+                    onClick={ShowPass}
+                />
+                <p>Show password</p>
                 <button type="submit">Login</button>
             </form>
             {error && <p>{error}</p>}

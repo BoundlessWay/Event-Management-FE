@@ -22,7 +22,7 @@ export const login = async (username, password) => {
     // }
 
     // return await response.json();
-    return { role: 'guest' };
+    return { id: '1', role: 'guest' };
 };
 
 /**

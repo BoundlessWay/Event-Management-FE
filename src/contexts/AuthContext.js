@@ -7,12 +7,16 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [role, setRole] = useState(null);
+    const [userID, setUserID] = useState(null);
+    const [username, setUser] = useState(null);
     const [error, setError] = useState(null);
 
     const handleLogin = async (username, password) => {
         try {
             const data = await login(username, password);
             setRole(data.role);
+            setUser(username);
+            setUserID(data.id);
             setIsLoggedIn(true);
             setError(null);
         } catch (err) {
@@ -24,6 +28,9 @@ export const AuthProvider = ({ children }) => {
     const handleLogout = () => {
         setIsLoggedIn(false);
         setRole(null);
+        setUser(null);
+        setUserID(null);
+        setError(null);
     };
 
     const handleRegisterGuest = async (userData) => {
@@ -48,7 +55,7 @@ export const AuthProvider = ({ children }) => {
 
     return (
         <AuthContext.Provider value={
-            { isLoggedIn, role, error, handleLogin, handleLogout, handleRegisterGuest, handleRegisterOrganization }
+            { isLoggedIn, role, error, username, userID, handleLogin, handleLogout, handleRegisterGuest, handleRegisterOrganization }
         }>
             {children}
         </AuthContext.Provider>
