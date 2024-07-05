@@ -4,6 +4,7 @@ import PublicRoutes from 'routes/PublicRoutes';
 import AdminRoutes from 'routes/AdminRoutes';
 import GuestRoutes from 'routes/GuestRoutes';
 import OrganizationRoutes from 'routes/OrganizationRoutes';
+import NotFound from 'pages/NotFound/NotFound';
 import { useAuth } from 'hooks/useAuth';
 
 
@@ -29,6 +30,8 @@ function App() {
         {PublicRoutes.map((route, index) => (
           <Route key={index} path={route.path} element={route.element} />
         ))}
+
+        <Route path="*" element={<NotFound />} />
 
       </Routes>
     </Router>

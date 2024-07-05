@@ -21,13 +21,7 @@ const HomePage = () => {
     const fakeImage = image;
 
     const handleEventClick = (e) => {
-
-        if (role === null) {
-            alert("You need login first !")
-            navigate('/login');
-        } else {
-            navigate(`/eventDetail/${e.eventID}`);
-        }
+        navigate(`/eventDetail/${e.eventID}`);
     }
 
     useEffect(() => {
