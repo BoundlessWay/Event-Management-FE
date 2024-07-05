@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa'; // Import search icon
 import styles from './NavBar.module.scss'; // Import CSS module for NavBar styling
-import { useAuth } from 'hooks/useAuth';
+import useAuth from 'hooks/useAuth';
 import avatar from 'assets/image/avatar.png';
 
 

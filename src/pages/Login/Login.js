@@ -1,23 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Login.module.scss';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth';
+import useAuth from 'hooks/useAuth';
+import GoBackButton from 'components/GoBackButton/GoBackButton';
 
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const { handleLogin, error } = useAuth();
+    const { role, error, handleLogin } = useAuth();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if (role !== null & !error) {
+            alert(`Login successful with role ${role}`);
+            navigate('/');
+        } else if (error) {
+            alert(error);
+        }
+    }, [role, error, navigate]);
 
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        await handleLogin(username, password);
-        if (!error) {
-            alert('Login successful');
-            navigate('/');
+        try {
+            await handleLogin(username, password);
+        } catch (err) {
+            console.error('Login failed:', err);
         }
-        else alert(error)
     };
 
     const handleSignUp = () => {
@@ -38,6 +47,7 @@ const Login = () => {
 
     return (
         <div className={styles.loginForm}>
+            <GoBackButton />
             <h2 className={styles.heading}>Login</h2>
             <form onSubmit={onSubmit}>
                 <div className={styles.inputGroup}>

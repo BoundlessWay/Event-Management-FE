@@ -1,0 +1,79 @@
+
+
+.topFixed {
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.adminDashboard {
+    display: flex;
+    flex-direction: column;
+
+
+    h2 {
+        margin-top: 32px;
+        font-size: 2em;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .userTable {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        button {
+            padding: 5px 10px;
+            margin-right: 5px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+            &:first-of-type {
+                background-color: #4CAF50;
+                color: white;
+
+                &:hover {
+                    background-color: #45a049;
+                }
+            }
+
+            &:last-of-type {
+                background-color: #f44336;
+                color: white;
+
+                &:hover {
+                    background-color: #da190b;
+                }
+            }
+        }
+    }
+}

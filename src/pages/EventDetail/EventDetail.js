@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import useEvent from 'hooks/useEvent';
 import styles from './EventDetail.module.scss';
 import image from "assets/image/event-image.jfif";
+import GoBackButton from 'components/GoBackButton/GoBackButton';
 
 const EventDetail = () => {
     const { eventId } = useParams();
@@ -28,12 +29,15 @@ const EventDetail = () => {
     }
 
     const handleGetTicket = () => {
-        alert(`Get ticket for event: ${event.eventID}`);
+
+
+        navigate(`/payment/${eventId}`);
+
     };
 
     return (
         <div className={styles.eventDetail}>
-            <button onClick={() => navigate(-1)} className={styles.backBtn}>Go Back</button>
+            <GoBackButton />
             <h1 className={styles.title}>{event.eventIntro}</h1>
             <img src={fakeImage} alt={event.eventIntro} className={styles.eventImage} />
             <p className={styles.description}>Description: {event.eventDescription}</p>

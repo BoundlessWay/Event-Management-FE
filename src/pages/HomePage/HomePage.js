@@ -5,7 +5,6 @@ import NavBar from "components/NavBar/NavBar"
 import EventCard from "components/EventCard/EventCard"
 import Footer from "components/Footer/Footer"
 import useEvent from 'hooks/useEvent';
-import { useAuth } from 'hooks/useAuth';
 import styles from './HomePage.module.scss';
 import image from "assets/image/event-image.jfif"
 
@@ -13,7 +12,6 @@ import image from "assets/image/event-image.jfif"
 const HomePage = () => {
 
     const { events, eventTypes, fetchAllEvents, fetchEventTypes } = useEvent();
-    const { role } = useAuth();
     const [filteredEvents, setFilteredEvents] = useState([]);
     const [selectedTypeID, setSelectedTypeID] = useState('');
     const [searchText, setSearchText] = useState('');

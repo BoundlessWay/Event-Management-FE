@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './GuestForm.module.scss';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth';
+import useAuth from '../../hooks/useAuth';
 
 const GuestForm = () => {
     const { handleRegisterGuest, error } = useAuth();
@@ -21,9 +21,10 @@ const GuestForm = () => {
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleSubmit = (e) => {
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        handleRegisterGuest(formData);
+        await handleRegisterGuest(formData);
         if (error) alert(error);
         else {
             alert('Registration successful! Please log in.');

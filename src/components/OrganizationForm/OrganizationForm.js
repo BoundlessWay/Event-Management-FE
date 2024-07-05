@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Organization.module.scss';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth';
+import useAuth from '../../hooks/useAuth';
 
 const OrganizationForm = () => {
 
@@ -22,14 +22,13 @@ const OrganizationForm = () => {
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        handleRegisterOrganization(formData);
+        await handleRegisterOrganization(formData);
         if (error) alert(error);
         else {
             alert('Registration successful! Please log in.');
             navigate('/login');
-            console.log(formData);
         }
     };
 

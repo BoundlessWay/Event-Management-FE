@@ -9,9 +9,9 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
 
-    .backBtn,
     .ticketBtn {
         padding: 12px 24px;
+        margin-top: 32px;
         font-size: 16px;
         font-weight: bold;
         color: #fff;
@@ -20,22 +20,12 @@
         border-radius: 4px;
         cursor: pointer;
         transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: #d04a32;
+        }
     }
 
-    .backBtn {
-        position: fixed;
-        top: 0;
-        left: 0;
-    }
-
-    .ticketBtn {
-        margin-top: 32px;
-    }
-
-    .backBtn:hover,
-    .ticketBtn:hover {
-        background-color: #d04a32;
-    }
 
     .title {
         font-size: 32px;

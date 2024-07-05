@@ -5,7 +5,7 @@ import AdminRoutes from 'routes/AdminRoutes';
 import GuestRoutes from 'routes/GuestRoutes';
 import OrganizationRoutes from 'routes/OrganizationRoutes';
 import NotFound from 'pages/NotFound/NotFound';
-import { useAuth } from 'hooks/useAuth';
+import useAuth from 'hooks/useAuth';
 
 
 function App() {

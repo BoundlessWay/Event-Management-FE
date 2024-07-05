@@ -1,11 +1,16 @@
 
-// const BASE_URL = 'https://gateway-service-7kqp.onrender.com/event';
-const BASE_URL = 'https://event-service-7nx8.onrender.com';
+const BASE_URL = 'https://gateway-service-7kqp.onrender.com/event';
+// const BASE_URL = 'https://event-service-7nx8.onrender.com';
 
 const EventService = {
     getAllEvents: async () => {
         try {
-            const response = await fetch(`${BASE_URL}/events`);
+            const response = await fetch(`${BASE_URL}/events`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
             if (!response.ok) {
                 throw new Error('Failed to fetch events');
             }
@@ -19,12 +24,17 @@ const EventService = {
 
     getEventById: async (eventId) => {
         try {
-            const response = await fetch(`${BASE_URL}/event/${eventId}`);
+            const response = await fetch(`${BASE_URL}/event/${eventId}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
             if (!response.ok) {
                 throw new Error('Failed to fetch event details');
             }
             const data = await response.json();
-            return data[0];
+            return data;
         } catch (error) {
             console.error(`Error fetching event with ID ${eventId}:`, error);
             throw error;
@@ -33,7 +43,12 @@ const EventService = {
 
     getEventTypes: async () => {
         try {
-            const response = await fetch(`${BASE_URL}/event-type`);
+            const response = await fetch(`${BASE_URL}/event-type`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
             if (!response.ok) {
                 throw new Error('Failed to fetch event types');
             }

@@ -1,7 +1,7 @@
-import EventDetail from "pages/EventDetail/EventDetail";
+import Payment from "pages/Payment/Payment";
 
 const GuestRoutes = [
-    { path: '/eventDetail/:eventId', element: <EventDetail /> },
+    { path: "/payment/:eventId", element: <Payment /> },
 ];
 
 export default GuestRoutes;
