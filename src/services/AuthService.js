@@ -31,20 +31,23 @@ export const login = async (username, password) => {
  * @returns {Object} - Response data from the server.
  */
 export const registerGuest = async (userData) => {
-    const response = await fetch(`${BASE_URL}/register/guest`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userData),
-    });
+    // const response = await fetch(`${BASE_URL}/register/guest`, {
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify(userData),
+    // });
 
-    if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error);
+    // if (!response.ok) {
+    //     const errorData = await response.json();
+    //     throw new Error(errorData.error);
+    // }
+
+    // return await response.json();
+    return {
+        "message": "Guest registered successfully",
     }
-
-    return await response.json();
 };
 
 /**
@@ -53,18 +56,21 @@ export const registerGuest = async (userData) => {
  * @returns {Object} - Response data from the server.
  */
 export const registerOrganization = async (userData) => {
-    const response = await fetch(`${BASE_URL}/register/organization`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userData),
-    });
+    // const response = await fetch(`${BASE_URL}/register/organization`, {
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify(userData),
+    // });
 
-    if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error);
+    // if (!response.ok) {
+    //     const errorData = await response.json();
+    //     throw new Error(errorData.error);
+    // }
+
+    // return await response.json();
+    return {
+        "message": "Organization registered successfully",
     }
-
-    return await response.json();
 };

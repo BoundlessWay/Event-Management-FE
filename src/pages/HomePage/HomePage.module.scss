@@ -16,15 +16,61 @@ $topNavBarHeight: 64px;
     background-repeat: no-repeat;
 }
 
-.eventList {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 32px;
+.mainContent {
     width: 100%;
     background-color: #f8f7fa;
-    padding: 128px 32px;
+    padding: 64px 32px;
 
+    .eventTypeList {
+        display: flex;
+        justify-content: center;
+        gap: 32px;
+        padding: 32px;
+        
+
+        span{
+            display: flex;
+            width: 104px;
+            height: 48px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: bold;
+            background-color: #fff;
+            border: 1px solid #f05537;
+            color: #000;
+
+            &:hover{
+                cursor: pointer;
+                background-color: #f05537;
+                color: #fff;
+            }
+        }
+
+        .selected {
+            background-color: #f05537;
+            color: #fff;
+        }
+    }
+
+    .eventList {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 32px;
+        width: 100%;
+
+        .emptyList {
+            grid-column: span 4;
+            text-align: center;
+            color: #f05537;
+            margin-top: 32px;
+            font-style: italic;
+        }
+    }
 }
+
+
 
 .bottomFooter {
     width: 100%;

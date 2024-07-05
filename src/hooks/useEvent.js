@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 import EventService from 'services/EventService';
 
 const useEvent = () => {
@@ -8,7 +8,7 @@ const useEvent = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    const fetchAllEvents = async () => {
+    const fetchAllEvents = useCallback(async () => {
         setLoading(true);
         setError(null);
         try {
@@ -19,14 +19,9 @@ const useEvent = () => {
         } finally {
             setLoading(false);
         }
-    };
-
-    useEffect(() => {
-        fetchAllEvents();
     }, []);
 
-
-    const fetchEventById = async (eventId) => {
+    const fetchEventById = useCallback(async (eventId) => {
         setLoading(true);
         setError(null);
         try {
@@ -37,9 +32,9 @@ const useEvent = () => {
         } finally {
             setLoading(false);
         }
-    };
+    }, []);
 
-    const fetchEventTypes = async () => {
+    const fetchEventTypes = useCallback(async () => {
         setLoading(true);
         setError(null);
         try {
@@ -50,9 +45,9 @@ const useEvent = () => {
         } finally {
             setLoading(false);
         }
-    };
+    }, []);
 
-    const createEvent = async (eventData) => {
+    const createEvent = useCallback(async (eventData) => {
         setLoading(true);
         setError(null);
         try {
@@ -63,7 +58,7 @@ const useEvent = () => {
         } finally {
             setLoading(false);
         }
-    };
+    }, []);
 
     return {
         events,

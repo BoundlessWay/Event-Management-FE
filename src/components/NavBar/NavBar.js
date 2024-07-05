@@ -1,18 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa'; // Import search icon
 import styles from './NavBar.module.scss'; // Import CSS module for NavBar styling
 import { useAuth } from 'hooks/useAuth';
-import avatar from 'assets/image/avatar.png'; // Import hình ảnh
+import avatar from 'assets/image/avatar.png';
 
-const NavBar = () => {
+
+const NavBar = ({ handleSearch }) => {
     const { username, role, handleLogout } = useAuth();
+    const [searchTerm, setSearchTerm] = useState('');
     const navigate = useNavigate();
 
     const handleLogoutClick = (e) => {
         e.preventDefault();
         handleLogout();
         navigate('/');
+    };
+
+    const handleSubmit = (e) => {
+        handleSearch(searchTerm);
+        navigate('/');
+    };
+
+    const handleInputChange = (e) => {
+        setSearchTerm(e.target.value);
+    };
+
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            handleSubmit(e);
+        }
     };
 
     return (
@@ -22,8 +39,14 @@ const NavBar = () => {
             </div>
 
             <div className={styles.searchBar}>
-                <input type="text" placeholder="Search events" />
-                <button><FaSearch /></button>
+                <input
+                    type="text"
+                    placeholder="Search events"
+                    value={searchTerm}
+                    onChange={handleInputChange}
+                    onKeyDown={handleKeyDown}
+                />
+                <button onClick={handleSubmit}><FaSearch /></button>
             </div>
 
             <ul className={styles.navLinks}>

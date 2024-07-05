@@ -19,12 +19,12 @@ const EventService = {
 
     getEventById: async (eventId) => {
         try {
-            const response = await fetch(`${BASE_URL}/events/${eventId}`);
+            const response = await fetch(`${BASE_URL}/event/${eventId}`);
             if (!response.ok) {
                 throw new Error('Failed to fetch event details');
             }
             const data = await response.json();
-            return data;
+            return data[0];
         } catch (error) {
             console.error(`Error fetching event with ID ${eventId}:`, error);
             throw error;
@@ -33,7 +33,7 @@ const EventService = {
 
     getEventTypes: async () => {
         try {
-            const response = await fetch(`${BASE_URL}/event-types`);
+            const response = await fetch(`${BASE_URL}/event-type`);
             if (!response.ok) {
                 throw new Error('Failed to fetch event types');
             }

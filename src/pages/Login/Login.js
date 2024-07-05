@@ -20,10 +20,14 @@ const Login = () => {
         else alert(error)
     };
 
+    const handleSignUp = () => {
+        navigate('/signup');
+    }
+
     function ShowPass() {
 
-        const checkbox = document.querySelector(`.${styles.loginForm} form input[type="checkbox"]`);
-        const passwordInput = document.querySelector(`.${styles.loginForm} form input:nth-child(2)`);
+        const checkbox = document.getElementById('showPass');
+        const passwordInput = document.getElementById('password');
 
         if (checkbox.checked) {
             passwordInput.type = 'text';
@@ -36,27 +40,38 @@ const Login = () => {
         <div className={styles.loginForm}>
             <h2 className={styles.heading}>Login</h2>
             <form onSubmit={onSubmit}>
-                <input
-                    type="text"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    placeholder="Username"
-                />
-                <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Password"
-                />
-                <input
-                    id="showPass"
-                    type="checkbox"
-                    onClick={ShowPass}
-                />
-                <p>Show password</p>
+                <div className={styles.inputGroup}>
+                    <label htmlFor="username">Username</label>
+                    <input
+                        type="text"
+                        id="username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        required
+                    />
+                </div>
+                <div className={styles.inputGroup}>
+                    <label htmlFor="password">Password</label>
+                    <input
+                        type='password'
+                        id="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </div>
+                <div className={styles.checkboxGroup}>
+                    <input
+                        type="checkbox"
+                        id="showPass"
+                        onClick={ShowPass}
+                    />
+                    <label htmlFor="showPass">Show password</label>
+                </div>
                 <button type="submit">Login</button>
             </form>
-            {error && <p>{error}</p>}
+            <p>Don't have an account ?</p>
+            <button onClick={handleSignUp} className={styles.signUpBtn}>Sign Up</button>
         </div>
     );
 };

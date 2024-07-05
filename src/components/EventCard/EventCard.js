@@ -16,7 +16,7 @@ const EventCard = ({ id, eventIntro, startDate, location, picture, price, organi
             <div className={styles.eventInfo}>
                 <h4 className={styles.heading}>{eventIntro}</h4>
                 <p className={styles.date}>Date: {startDate}</p>
-                <p className={styles.price}>Price: {price}</p>
+                <p className={styles.price}>Price ($): {price}</p>
                 <p className={styles.organization}>Organization: {organization}</p>
                 <p className={styles.location}>Location: {location}</p>
             </div>
