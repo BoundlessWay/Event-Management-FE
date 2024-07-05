@@ -10,6 +10,8 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    margin-top: 64px;
+    padding:64px;
 
 
     h2 {
@@ -57,6 +59,7 @@
             border-radius: 3px;
             cursor: pointer;
             transition: background-color 0.3s;
+            width: 100px;
 
             &:first-of-type {
                 background-color: #4CAF50;

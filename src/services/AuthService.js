@@ -20,7 +20,7 @@ const AuthService = {
         //     console.error('Error logging in:', error);
         //     throw error;
         // }
-        return { id: '1', role: 'admin' };
+        return { id: '1', role: 'organization' };
     },
 
     registerGuest: async (userData) => {
