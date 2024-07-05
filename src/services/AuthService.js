@@ -1,5 +1,5 @@
 // src/services/authService.js
-const BASE_URL = 'https://gateway-service-7kqp.onrender.com/auth';
+// const BASE_URL = 'https://gateway-service-7kqp.onrender.com/auth';
 
 const AuthService = {
     login: async (username, password) => {

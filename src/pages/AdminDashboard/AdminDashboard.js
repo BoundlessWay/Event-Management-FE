@@ -8,15 +8,15 @@ const AdminDashboard = () => {
     const { isLoggedIn, role, getAllUsers, users, loadingUsers, fetchUsersError } = useAuth();
     const navigate = useNavigate();
 
-    // useEffect(() => {
-    //     console.log("hello")
-    //     // console.log(users);
-    //     if (!isLoggedIn || role !== 'admin') {
-    //         navigate('/login');
-    //     } else {
-    //         getAllUsers();
-    //     }
-    // }, [isLoggedIn, role, navigate, getAllUsers]);
+    useEffect(() => {
+        console.log("hello")
+        // console.log(users);
+        if (!isLoggedIn || role !== 'admin') {
+            navigate('/login');
+        } else {
+            // getAllUsers();
+        }
+    }, [isLoggedIn, role, navigate, getAllUsers]);
 
     if (loadingUsers) {
         return <p>Loading...</p>;
